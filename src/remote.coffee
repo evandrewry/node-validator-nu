@@ -8,7 +8,11 @@ freeport = require "freeport"
 helper = require "./helper"
 
 class Vnu
-  constructor: (@xargs={}, @args={}, @vnuPath=helper.vnuJar, @verbose=false, @port) ->
+  constructor: (@xargs={},
+                @args={},
+                @vnuPath=helper.vnuJar,
+                @verbose=false,
+                @port) ->
     @server = null
 
   "open": =>
