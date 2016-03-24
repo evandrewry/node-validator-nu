@@ -8,12 +8,12 @@ freeport = require "freeport"
 helper = require "./helper"
 
 class Vnu
-  constructor: (@xargs={}, @args={}, @vnuPath=helper.vnuJar, @verbose) ->
+  constructor: (@xargs={}, @args={}, @vnuPath=helper.vnuJar, @verbose=false, @port) ->
     @server = null
 
   "open": =>
     q.nfcall(freeport).then (port) =>
-      @port = port
+      @port ?= port
       argsToPass = helper.genArgs(@xargs, true).concat(
         "-cp", @vnuPath,
         "nu.validator.servlet.Main", port.toString(10),
