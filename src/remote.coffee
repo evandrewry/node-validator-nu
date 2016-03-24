@@ -20,7 +20,7 @@ class Vnu
       @port ?= port
       argsToPass = helper.genArgs(@xargs, true).concat(
         "-cp", @vnuPath,
-        "nu.validator.servlet.Main", port.toString(10),
+        "nu.validator.servlet.Main", @port.toString(10),
         helper.genArgs(@args),
       )
       defer = q.defer()
